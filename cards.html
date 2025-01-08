@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        /* background-color: #f3f3f3; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Helventica", sans-serif;
+
+        height: 100vh;
+        width: 100%;
+
+        /* more energic */
+        /* background-color: #f1f1f1;
+        color: #2c3e50; */
+
+        /* childish */
+        background-color: #e3f2fd;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+
+      .question-numbers {
+        width: 50%;
+        height: 100px;
+        /* background-color: aquamarine; */
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 15px;
+      }
+
+      .question-numbers input {
+        display: none;
+      }
+
+      .number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: hsl(277, 47%, 57%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        cursor: pointer;
+      }
+
+      .number:hover {
+        transform: scale(1.1);
+        background-color: #6a1b9a;
+      }
+
+      .number.current-question {
+        background-color: #6a1b9a;
+        transform: scale(1.2);
+      }
+
+      .question {
+        width: 70%;
+        height: auto;
+        /* background-color: rgb(134, 42, 165); */
+        /* color: white; */
+        font-size: 2em;
+
+        /* energic */
+        color: #34495e;
+
+        /* childish */
+        background-color: #fff9c4;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+        color: #6a1b9a;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        margin: 20px;
+      }
+
+      .answers {
+        width: 70%;
+        height: 300px;
+        /* background-color: rgb(39, 126, 158); */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .card {
+        flex-basis: 20%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        cursor: pointer;
+
+        padding: 5px;
+        /* border: 1px solid #ddd; */
+        border-radius: 10px;
+
+        /* background-color: rgb(207, 163, 93); */
+        /* background-color: #fff; */
+        box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), -10px -10px 10px white;
+
+        font-size: 1.5em;
+        text-align: center;
+
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        /* energic */
+        background-color: #ffeb3b;
+        color: #2c3e50;
+
+        /* childish */
+        color: #2c3e50;
+        border-radius: 15px;
+      }
+
+      .card:hover {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 12px 12px 12px rgba(170, 131, 131, 0.1),
+          -10px -10px 10px white;
+        background-color: rgba(73, 58, 148, 0.3);
+        border-radius: 5px;
+
+        /* energic */
+        /* background-color: #f39c12;*/
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+
+        /* childish */
+        background-color: #ff7043;
+      }
+
+      .card:active {
+        transform: scale(0.95);
+        box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1) inset,
+          -10px -10px 10px white inset;
+        border: none;
+
+        /* energic */
+        background-color: #e56e22;
+      }
+
+      .card input[type="radio"] {
+        display: none;
+      }
+
+      .card input[type="radio"]:checked + div {
+        background-color: hsl(0, 81%, 70%);
+        border-radius: 5%;
+      }
+
+      .card.correct input[type="radio"]:checked + div {
+        background-color: hsl(120, 27%, 40%);
+        border-radius: 5%;
+      }
+
+      .card input[type="radio"]:checked {
+        background-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        .question {
+          font-size: 1.5em;
+        }
+        .answers {
+          flex-direction: column;
+          align-items: center;
+        }
+        .card {
+          width: 80%;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="question-numbers" aria-label="pagination">
+      <label for="">
+        <div class="number">
+          <span aria-hidden="true">&laquo;</span>
+        </div>
+      </label>
+      <label>
+        <input type="radio" name="number" checked />
+        <div class="number current-question">1</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">2</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">3</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">4</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">5</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">6</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">7</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">8</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">9</div>
+      </label>
+      <label>
+        <input type="radio" name="number" />
+        <div class="number">10</div>
+      </label>
+      <label for="">
+        <div class="number">
+          <span aria-hidden="true">&raquo;</span>
+        </div>
+      </label>
+    </nav>
+    <div class="question-answer">
+      <div class="question">
+        Question 1: One of these is in Islam foundations:
+      </div>
+      <div class="answers">
+        <label class="card correct">
+          <img src="" alt="" />
+          <input type="radio" name="answer" />
+          <div>Giving money (Zakat)</div>
+        </label>
+        <label class="card">
+          <img src="" alt="" />
+          <input type="radio" name="answer" />
+          <div>Eating meat (Halal)</div>
+        </label>
+        <label class="card">
+          <img src="" alt="" />
+          <input type="radio" name="answer" />
+          <div>Jumping on a stick (Sports)</div>
+        </label>
+        <label class="card">
+          <img src="" alt="" />
+          <input type="radio" name="answer" />
+          <div>Night Prayer (qeyam)</div>
+        </label>
+      </div>
+    </div>
+  </body>
+</html>

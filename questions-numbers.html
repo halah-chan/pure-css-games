@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Quiz with Pagination</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      h2 {
+        margin-bottom: 20px;
+      }
+      .pagination {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .page {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      input[type="radio"] {
+        display: none;
+      }
+      /* Highlight the active page */
+      input[type="radio"]:checked + .page {
+        background-color: purple;
+        color: white;
+      }
+      .questions {
+        display: none;
+        margin-top: 20px;
+      }
+      /* Show the active question */
+      input[type="radio"]:checked ~ .questions {
+        display: block;
+      }
+      .card {
+        width: 150px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        margin: 10px;
+        transition: background-color 0.3s;
+      }
+      .card:hover {
+        border-color: #999;
+      }
+      input[type="radio"]:checked + .card.correct {
+        background-color: green;
+        color: white;
+      }
+      input[type="radio"]:checked + .card.incorrect {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>General Knowledge</h2>
+
+    <div class="pagination">
+      <label>
+        <input type="radio" name="question" checked />
+        <div class="page">1</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">2</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">3</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">4</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">5</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">6</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">7</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">8</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">9</div>
+      </label>
+      <label>
+        <input type="radio" name="question" />
+        <div class="page">10</div>
+      </label>
+    </div>
+
+    <!-- Questions -->
+    <div class="questions">
+      <div class="question" style="display: block" id="question1">
+        <h3>Question 1: One of these is in Islam foundations:</h3>
+        <label>
+          <input type="radio" name="answer1" value="correct" />
+          <div class="card correct">Giving money (Zakat)</div>
+        </label>
+        <label>
+          <input type="radio" name="answer1" value="incorrect" />
+          <div class="card incorrect">Eating meat (Halal)</div>
+        </label>
+        <label>
+          <input type="radio" name="answer1" value="incorrect" />
+          <div class="card incorrect">Jumping on a stick (sports)</div>
+        </label>
+      </div>
+
+      <!-- Repeat this structure for 9 more questions -->
+
+      <div class="question" id="question2">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer2" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer2" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer2" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <!-- <div class="question" id="question3">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer3" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer3" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer3" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <div class="question" id="question4">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer4" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer4" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer4" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <div class="question" id="question5">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer5" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer5" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer5" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <div class="question" id="question6">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer6" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer6" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer6" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <div class="question" id="question7">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer7" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer7" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer7" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <div class="question" id="question8">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer8" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer8" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer8" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <div class="question" id="question9">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer9" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer9" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer9" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div>
+      <div class="question" id="question10">
+        <h3>Question 2: Example question goes here.</h3>
+        <label>
+          <input type="radio" name="answer10" value="correct" />
+          <div class="card correct">Correct Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer10" value="incorrect" />
+          <div class="card incorrect">Incorrect Answer</div>
+        </label>
+        <label>
+          <input type="radio" name="answer10" value="incorrect" />
+          <div class="card incorrect">Another Incorrect Answer</div>
+        </label>
+      </div> -->
+      <!-- Add more questions as needed -->
+    </div>
+  </body>
+</html>
